@@ -1,0 +1,60 @@
+@import "reset-src";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Ubuntu:300,400,500');
+
+$font: 500 14px 'Ubuntu', Arial, sans-serif;
+$fontCond: 300 14px 'Ubuntu Condensed', Arial, sans-serif;
+$wrapperWidth: 1160px;
+$colorHover: #248cec;
+
+%display-inline-block {
+	display: inline-block;
+	vertical-align: top;
+}
+
+body {
+	font: $font;
+}
+.wrapper {
+	width: $wrapperWidth;
+	margin: 0 auto;
+}
+
+.header {
+	margin: 37px 0 0;
+
+	&__logo {
+		@extend %display-inline-block;
+
+		img {
+			width: 36px;
+			height: 36px;
+		}
+	}
+
+	&__text {
+		@extend %display-inline-block;
+		margin: 0 0 0 10px;
+		
+		&--name {
+			font-size: 30px;
+		}
+		&--slogan {
+			margin: 7px 0 0;
+			font-size: 12px;
+			font-weight: 300;
+			letter-spacing: 1px;
+		}
+	}
+
+	&__social {
+		float: right;
+		margin: 11px 0 0;
+		text-align: center;
+
+		a {
+			@extend %display-inline-block;
+			margin: 0 0 0 18px;
+
+		}
+	}
+}
