@@ -5,7 +5,10 @@
 	<title>JS #19-20 | GOIT FE#6</title>
 
 	<link rel="stylesheet" href="styles/css/style.css">
+	<link rel="stylesheet" href="styles/css/jquery.bxslider.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="js/jquery.bxslider.min.js"></script>
 	<script src="js/lodash.min.js"></script>
 	<script src="js/script.js"></script>
 </head>
@@ -26,34 +29,46 @@
 		</div>
 
 		<div class="header__social">
-			<a href="#"><img src="img/header-social-facebook.png" alt="facebook"></a>
-			<a href="#"><img src="img/header-social-twitter.png" alt="twitter"></a>
-			<a href="#"><img src="img/header-social-rss.png" alt="rss"></a>
-			<a href="#"><img src="img/header-social-linkedin.png" alt="linkedin"></a>
-			<a href="#"><img src="img/header-social-skype.png" alt="skype"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
 		</div>
 	</div>
 
 	<nav>
 		<ul class="nav__menu">
-			<li><a href="#">Home</a></li>
+			<li class="active"><a href="#">Home</a></li>
 			<li><a href="#">Features</a></li>
 			<li><a href="#">Services</a></li>
 			<li><a href="#">News</a></li>
 			<li><a href="#">Shop</a></li>
 		</ul>
 
-		<form action="" method="" class="nav__search">
-			<input type="text" class="nav__search__input">
+		<form action="" method="" class="search-block">
+			<input type="text" class="search-block__input" placeholder="Search...">
+			<button type="submit" class="search-block__submit"></button>
 		</form>
 	</nav>
 
-	<section class="main-slider-wrap">
+	<section class="main-slider__wrap">
 		<ul class="main-slider">
 			<li><img src="img/main-slide1.jpg" alt=""></li>
 			<li><img src="img/main-slide1.jpg" alt=""></li>
 			<li><img src="img/main-slide1.jpg" alt=""></li>
 		</ul>
+
+		<div class="main-slider__text">
+			<svg>
+				<polygon points="0 0, 215 0, 215 107, 308 107, 308 197, 0 308">
+				<text>
+					<span class="orange">Build</span><br>
+					your<br>
+					business
+				</text>
+			</svg>
+		</div>
 	</section>
 
 	<section class="perks">
@@ -82,36 +97,48 @@
 			</div>
 		</div>
 	</section>
+</div>
+<section class="services">
+<div class="wrapper">
+	<div class="services__header">
+		Our Services
+	</div>
 
-	<section class="services">
+	<div class="services__item-wrap">
 		<a href="#" class="services__item">
 			<div class="services__img"><img src="img/services1.jpg" alt=""></div>
-			<div class="services__title"></div>
+			<div class="services__title">Schedule Services</div>
 		</a>
 		<a href="#" class="services__item">
 			<div class="services__img"><img src="img/services2.jpg" alt=""></div>
-			<div class="services__title"></div>
+			<div class="services__title">Preventive Maintence</div>
 		</a>
 		<a href="#" class="services__item">
 			<div class="services__img"><img src="img/services3.jpg" alt=""></div>
-			<div class="services__title"></div>
+			<div class="services__title">Tire & Wheel Services</div>
 		</a>
 		<a href="#" class="services__item">
 			<div class="services__img"><img src="img/services4.jpg" alt=""></div>
-			<div class="services__title"></div>
+			<div class="services__title">Repair Services</div>
 		</a>
-	</section>
+	</div>
+</div>
+</section>
 
-	<section class="promo">
-		<div class="promo__left">
+<section class="promo">
+<div class="wrapper">
+	<div class="promo__left">
 
-			<div class="promo__header">
-				Latest News
-			</div>
-
+		<div class="promo__header">
+			Latest News
+		</div>
+		
+		<div class="news">
+			
 			<div class="news__item">
 
 				<div class="news__img">
+					<img src="img/news1.jpg" alt="">
 					<div class="news__date">
 						<div class="news__date--mon">
 							Jan
@@ -120,12 +147,11 @@
 							23
 						</div>
 					</div>
-					<img src="img/news1.jpg" alt="">
 				</div>
 
 				<div class="news__main">
 					<div class="news__title">
-						Advanced Machinery Helps Improve Quality
+						<a href="#">Advanced Machinery Helps Improve Quality</a>
 					</div>
 					<div class="news__info">
 						<span class="news__info--author">
@@ -145,6 +171,7 @@
 			<div class="news__item">
 
 				<div class="news__img">
+					<img src="img/news2.jpg" alt="">
 					<div class="news__date">
 						<div class="news__date--mon">
 							Jan
@@ -153,7 +180,6 @@
 							21
 						</div>
 					</div>
-					<img src="img/news2.jpg" alt="">
 				</div>
 
 				<div class="news__main">
@@ -177,96 +203,111 @@
 
 		</div>
 
-		<div class="promo__right">
-			<div class="promo__header">
-				Banners Place
+	</div>
+
+	<div class="promo__right">
+		<div class="promo__header">
+			Banners Place
+		</div>
+
+		<div class="accordion">
+
+			<div class="accordion__head active">
+				Accordion panel 1
 			</div>
+			<div class="accordion__body">Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.</div>
 
-			<div class="accordion">
-				<div class="acc__head">Accordion panel 1
-					<div class="acc__body">Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.</div>
-				</div>
-				<div class="acc__head">Accordion panel 2
-					<div class="acc__body">Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.</div>
-				</div>
-				<div class="acc__head">Accordion panel 3
-					<div class="acc__body">Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.</div>
-				</div>
-				<div class="acc__head">Accordion panel 4
-					<div class="acc__body">Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.</div>
-				</div>
+			<div class="accordion__head">
+				Accordion panel 2
 			</div>
-		</div>
+			<div class="accordion__body">Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.</div>
 
+			<div class="accordion__head">
+				Accordion panel 3
+			</div>
+			<div class="accordion__body">Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.</div>
 
-	</section>
-
-	<section class="clients">
-		<div class="clients__item"><img src="img/client1.png" alt=""></div>
-		<div class="clients__item"><img src="img/client2.png" alt=""></div>
-		<div class="clients__item"><img src="img/client3.png" alt=""></div>
-		<div class="clients__item"><img src="img/client4.png" alt=""></div>
-		<div class="clients__item"><img src="img/client5.png" alt=""></div>
-		<div class="clients__item"><img src="img/client6.png" alt=""></div>
-	</section>
-
-	<section class="bottom-menu">
-		<div class="bottom-menu__wrap">
-			<div class="bottom-menu__title">Socials</div>
-			<ul class="bottom-menu__list">
-				<li><a href="#">Facebook</a></li>
-				<li><a href="#">Flickr</a></li>
-				<li><a href="#">Twitter</a></li>
-				<li><a href="#">Vimeo</a></li>
-			</ul>
+			<div class="accordion__head">
+				Accordion panel 4
+			</div>
+			<div class="accordion__body">Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.</div>
 		</div>
-		<div class="bottom-menu__wrap">
-			<div class="bottom-menu__title">Links</div>
-			<ul class="bottom-menu__list">
-				<li><a href="#">How to Write a Blog.</a></li>
-				<li><a href="#">Create a Blog in 4 Steps</a></li>
-				<li><a href="#">15 Tips to Increase Traffic</a></li>
-				<li><a href="#">20 Blog Post Ideas</a></li>
-			</ul>
-		</div>
-		<div class="bottom-menu__wrap">
-			<div class="bottom-menu__title">Blogroll</div>
-			<ul class="bottom-menu__list">
-				<li><a href="#">Blogs Blog</a></li>
-				<li><a href="#">Roll Up Roll Up</a></li>
-				<li><a href="#">Blog Free</a></li>
-				<li><a href="#">Wordpress Blog</a></li>
-			</ul>
-		</div>
-		<div class="bottom-menu__wrap">
-			<div class="bottom-menu__title">About Us</div>
-			<ul class="bottom-menu__list">
-				<li><a href="#">Agriculture</a></li>
-				<li><a href="#">Harvest</a></li>
-				<li><a href="#">Company news</a></li>
-				<li><a href="#">Investor relations</a></li>
-			</ul>
-		</div>
-	</section>
-
-	<section class="footer">
-		<div class="footer__adress">
-			BuildHomeLtd.  Street Name 123 23 45 Cityname
-		</div>
-
-		<div class="footer__phone">
-			+123 900 123 456
-		</div>
-
-		<div class="footer__email">
-			<a href="mailto:info@buildhome.web">info@buildhome.web</a>
-		</div>
-
-		<div class="footer__copyright">
-			© 2014 Build Home
-		</div>
-	</section>
+	</div>
 
 </div>
+</section>
+
+<section class="clients">
+<div class="wrapper">
+	<img src="img/client1.png" alt="" class="clients__item">
+	<img src="img/client2.png" alt="" class="clients__item">
+	<img src="img/client3.png" alt="" class="clients__item">
+	<img src="img/client4.png" alt="" class="clients__item">
+	<img src="img/client5.png" alt="" class="clients__item">
+	<img src="img/client6.png" alt="" class="clients__item">
+</div>
+</section>
+
+<section class="bottom-menu">
+<div class="wrapper">
+	<div class="bottom-menu__block">
+		<div class="bottom-menu__title">Socials</div>
+		<ul class="bottom-menu__list">
+			<li><a href="#">Facebook</a></li>
+			<li><a href="#">Flickr</a></li>
+			<li><a href="#">Twitter</a></li>
+			<li><a href="#">Vimeo</a></li>
+		</ul>
+	</div>
+	<div class="bottom-menu__block">
+		<div class="bottom-menu__title">Links</div>
+		<ul class="bottom-menu__list">
+			<li><a href="#">How to Write a Blog.</a></li>
+			<li><a href="#">Create a Blog in 4 Steps</a></li>
+			<li><a href="#">15 Tips to Increase Traffic</a></li>
+			<li><a href="#">20 Blog Post Ideas</a></li>
+		</ul>
+	</div>
+	<div class="bottom-menu__block">
+		<div class="bottom-menu__title">Blogroll</div>
+		<ul class="bottom-menu__list">
+			<li><a href="#">Blogs Blog</a></li>
+			<li><a href="#">Roll Up Roll Up</a></li>
+			<li><a href="#">Blog Free</a></li>
+			<li><a href="#">Wordpress Blog</a></li>
+		</ul>
+	</div>
+	<div class="bottom-menu__block">
+		<div class="bottom-menu__title">About Us</div>
+		<ul class="bottom-menu__list">
+			<li><a href="#">Agriculture</a></li>
+			<li><a href="#">Harvest</a></li>
+			<li><a href="#">Company news</a></li>
+			<li><a href="#">Investor relations</a></li>
+		</ul>
+	</div>
+</div>
+</section>
+
+<section class="footer">
+<div class="wrapper">
+	<div class="footer__address">
+		BuildHomeLtd.  Street Name 123 23 45 Cityname
+	</div>
+
+	<div class="footer__phone">
+		+123 900 123 456
+	</div>
+
+	<div class="footer__email">
+		info@buildhome.web
+	</div>
+
+	<div class="footer__copyright">
+		© 2014 Build Home
+	</div>
+</div>
+</section>
+
 </body>
 </html>

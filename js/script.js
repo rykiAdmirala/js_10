@@ -1,3 +1,7 @@
+$(function() {
+  $('.main-slider').bxSlider();
+});
+
 var dataJSON = [
   {
     "guid": "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
@@ -288,7 +292,7 @@ var sortedNames = _.map(_.sortBy(data, 'friends.length'), 'name');
 
 console.log('Names sorted in order of number of friends - ', sortedNames);
 
-/** Сначала я сделал выборку друзей вот так **/
+/** Сначала я сделал выборку друзей так **/
 var friends = _.uniq(_.flatMap(_.flatMap(data, 'friends'), 'name'));
 
 console.log(friends);
@@ -296,7 +300,7 @@ console.log(friends);
 
 /** Но потом я начал гуглить каким образом можно избавиться от двух flatMap'ов, 
     и забрёл в такие дебри интернетов, что разузнал про и явный чейнинг, и жирные стрелки, и не смог с ними не побаловаться.
-    Но походу от двух маппингов я так и не избавился )
+    Но походу всё равно от двух маппингов я так и не избавился) 
 **/
 var friendsES6 = _.uniq(_.flatMap(data, 
   person => _(person.friends)
