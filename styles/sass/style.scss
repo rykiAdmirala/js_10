@@ -1,8 +1,8 @@
-@import "reset-src";
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Ubuntu:300,400,500');
+@import 'reset-src';
 
 $font: 			500 14px/1.43 'Ubuntu', Arial, sans-serif;
-$fontCond: 		300 14px 'Ubuntu Condensed', Arial, sans-serif;
+$fontCond: 		'Ubuntu Condensed', Arial, sans-serif;
 $fontArial: 	Arial, sans-serif;
 $wrapperWidth: 	1160px;
 
@@ -18,8 +18,12 @@ $colorFontGray: #8a8a8a;
 }
 
 body {
-	font: $font;
 	color: $colorFont;
+	font: $font;
+}
+a {
+	color: $colorFont;
+	text-decoration: none;
 }
 .wrapper {
 	width: $wrapperWidth;
@@ -44,7 +48,9 @@ body {
 		color: #333;
 		
 		&--name {
+			display: block;
 			font-size: 30px;
+			line-height: .7;
 		}
 		&--slogan {
 			margin: 7px 0 0;
@@ -62,6 +68,8 @@ body {
 
 		a {
 			@extend %display-inline-block;
+			width: 20px;
+			height: 20px;
 			margin: 0 0 0 18px;
 			background: url(../../img/header-social-facebook.png) no-repeat center center;
 			background-blend-mode: color;
@@ -81,7 +89,6 @@ body {
 			}
 
 			&:hover {
-				background-color: $colorBlue;
 				opacity: 1;
 			}
 		}
@@ -91,9 +98,17 @@ body {
 nav {
 	margin: 35px 0 0;
 	background: $colorBgDark;
+
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
 }
 
 .nav__menu {
+	float: left;
+
 	li {
 		@extend %display-inline-block;
 
@@ -101,7 +116,7 @@ nav {
 			display: block;
 			padding: 0 40px;
 			border-right: 1px solid #181a1d;
-			font: $fontCond;
+			font: 14px $fontCond;
 			color: #fff;
 			line-height: 56px;
 			text-transform: uppercase;
@@ -126,7 +141,12 @@ nav {
 		padding: 0 14px;
 		background: #35383c;
 		border: 1px solid #181a1d;
+		color: #fff;
 		line-height: 38px;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	&__submit {
@@ -136,28 +156,38 @@ nav {
 		width: 16px;
 		height: 16px;
 		background: url('../../img/search-submit.png') center center no-repeat;
-		opacity: .2;
+		border: 0;
 	}
 }
 .main-slider {
 	&__wrap {
 		position: relative;
 		margin: 40px 0 0;
-
+		
 		svg {
-			position: absolute;
-			bottom: 40px;
-			left: 36px;
-			text-transform: uppercase;
-		}
-
-		polygon {
-			fill: rgba(0,0,0,.9);
+			height: 200px;
+			fill: rgba(0,0,0,.8);
 		}
 
 		.orange {
 			color: $colorOrange;
 		}
+	}
+
+	&__slogan {
+		position: absolute;
+		bottom: 40px;
+		left: 40px;
+	}
+
+	&__text {
+		position: absolute;
+		top: 10px;
+		left: 20px;
+		color: #fff;
+		font-size: 54px;
+		line-height: 1.1;
+		text-transform: uppercase;
 	}
 }
 
@@ -167,7 +197,7 @@ nav {
 
 	&__item {
 		@extend %display-inline-block;
-		width: 31%;
+		width: 29%;
 		margin: 0 40px 0 0;
 	}
 
@@ -175,12 +205,15 @@ nav {
 		@extend %display-inline-block;
 		font-size: 90px;
 		opacity: .1;
+		line-height: 1;
 	}
 
 	&__block {
 		@extend %display-inline-block;
-		padding: 56px 0 0;
-		background: url(../../img/perks-item-1.png) 3px top no-repeat;
+		width: 200px;
+		margin: 0 0 0 30px;
+		padding: 42px 0 0;
+		background: url(../../img/perks-item-1.png) 3px 13px no-repeat;
 	}
 	&:nth-child(2) &__block {
 		background-image: url(../../img/perks-item-2.png);
@@ -196,18 +229,19 @@ nav {
 
 	&__description {
 		margin: 27px 0 0;
-		font: 13px $fontArial;
+		font: 13px/1.5 $fontArial;
 		color: $colorFontGray;
 	}
 
 	&__moar {
-		display: block;
+		display: inline-block;
 		margin: 25px 0 0;
-		padding: 0 40px 0 0;
+		padding: 0 23px 0 0;
 		background: url(../../img/perks-moar.png) right center no-repeat;
 		font-size: 13px;
 		
 		&:hover {
+			background-image: url(../../img/perks-moar-hover.png);
 			color: $colorBlue;
 		}
 	}
@@ -233,16 +267,7 @@ nav {
 		width: 260px;
 		height: 260px;
 
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-	}
-	&__item:hover {
-		color: $colorOrange;
-
-		&__img:before {
+		&:before {
 			content: '';
 			position: absolute;
 			top: 0;
@@ -250,17 +275,47 @@ nav {
 			bottom: 0;
 			left: 0;
 			background: $colorBlue;
-			opacity: .9;
+			opacity: 0;
+			transition: opacity .3s ease-in-out;
 			z-index: 10;
 		}
-		&__img:after {
+		&:after {
 			content: '+';
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			font-size: 38px;
-			margin-top: -19px;
+			color: #fff;
+			font: 70px Arial, sans-serif;
+			margin-top: -35px;
 			margin-left: -19px;
+			z-index: 11;
+			transition: opacity .3s ease-in-out;
+			opacity: 0;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__title {
+		margin: 35px 0 0;
+		color: #fff;
+		text-align: center;
+		transition: color .3s ease-in-out;
+	}
+
+	&__item:hover {
+		& .services__img:before {
+			opacity: .9;
+		}
+		& .services__img:after {
+			opacity: 1;
+		}
+		&  .services__title {
+			color: $colorOrange;
 		}
 	}
 }
@@ -315,12 +370,12 @@ nav {
 			text-align: center;
 		}
 
-		%--mon {
+		&--mon {
 			background: $colorBlue;
 			color: #fff;
 		}
 
-		%--mon {
+		&--day {
 			background: $colorOrange;
 			color: $colorFont;
 		}
@@ -328,7 +383,8 @@ nav {
 
 	&__main {
 		@extend %display-inline-block;
-		width: 35px;
+		width: 340px;
+		margin: 0 0 0 33px;
 		font-size: 13px;
 	}
 
@@ -343,6 +399,7 @@ nav {
 
 	&__info {
 		margin: 9px 0 0;
+		color: $colorFontGray;
 
 		a {
 			color: $colorBlue;
@@ -351,6 +408,7 @@ nav {
 
 	&__description {
 		margin: 28px 0 0;
+		color: $colorFontGray;
 	}
 }
 
@@ -364,6 +422,7 @@ nav {
 		font-size: 13px;
 		line-height: 37px;
 		text-transform: uppercase;
+		cursor: pointer;
 
 		&:before {
 			content: '+';
@@ -403,7 +462,8 @@ nav {
 	text-align: center;
 
 	&__item {
-		margin: 0 90px 0 0;
+		margin: 0 4% 0 0;
+		opacity: .65;
 
 		&:last-child {
 			margin-right: 0;
@@ -417,7 +477,7 @@ nav {
 
 	&__block {
 		@extend %display-inline-block;
-		margin: 0 41px 0 0;
+		margin: 0 3% 0 0;
 		width: (260px / $wrapperWidth) * 100%;
 
 		&:last-child {
@@ -440,6 +500,7 @@ nav {
 		}
 
 		a {
+			display: block;
 			color: #fff;
 			line-height: 35px;
 			opacity: .3;
@@ -466,6 +527,7 @@ nav {
 		margin: 0 35px 0 0;
 		background: url(../../img/footer-address.png) left top no-repeat;
 		line-height: 16px;
+		opacity: .2;
 	}
 	&__phone {
 		background-image: url(../../img/footer-phone.png);
@@ -477,5 +539,6 @@ nav {
 	&__copyright {
 		float: right;
 		line-height: 16px;
+		opacity: .2;
 	}
 }

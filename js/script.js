@@ -1,7 +1,12 @@
+// Initialising slider
 $(function() {
-  $('.main-slider').bxSlider();
+  $('.main-slider').bxSlider({
+    controls: false
+  });
 });
 
+
+// Working with json
 var dataJSON = [
   {
     "guid": "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
@@ -281,13 +286,13 @@ var dataJSON = [
 
 var data = JSON.parse(JSON.stringify(dataJSON));
 
-/** **/
+/** Retrieved all skills -> left only unique -> sorted them **/
 var sortedSkills = _.sortBy(_.uniq(_.flatMap(data, 'skills')));
 
 console.log('List of all available skills - ', sortedSkills);
 
 
-/** **/
+/** At first sorted all people by number of their friends -> the retrieved names **/
 var sortedNames = _.map(_.sortBy(data, 'friends.length'), 'name');
 
 console.log('Names sorted in order of number of friends - ', sortedNames);

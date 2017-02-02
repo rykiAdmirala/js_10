@@ -18,6 +18,8 @@
   "homepage": "https://github.com/rykiAdmirala/js_10#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-livereload": "^3.8.1",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.4.0"
   }
